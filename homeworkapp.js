@@ -27,15 +27,16 @@ function renderTable() {
 }
 
 function handleSearchButtonClick() {
+  
   // Format the user's search by removing leading and trailing whitespace, lowercase the string
   var filterState = dateInput.value.trim().toLowerCase();
 
-  // Set filteredReports to an array of all addresses whose "state" matches the filter
-  filteredReports = addressData.filter(function(report) {
-    var addressState = report.datetime;
+  // Set filteredReports to an array of all addresses whose "date" matches the filter
+  filteredReports = data.filter(function(report) {
+    var time = report.datetime;
 
     // If true, add the report to the filteredReports, otherwise don't add it to filteredReports
-    return addressState === filterState;
+    return time === filterState;
   });
   renderTable();
 }
